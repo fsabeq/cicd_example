@@ -3,6 +3,7 @@
 ### Запуск раннера
 ```
 docker run -d --name gitlab-runner --restart always \
+  --add-host=gitlab.kameraaction.pp.ua:172.17.10.21 \
   -v /srv/gitlab-runner/config:/etc/gitlab-runner \
   -v /var/run/docker.sock:/var/run/docker.sock \
   gitlab/gitlab-runner:alpine
@@ -11,6 +12,7 @@ docker run -d --name gitlab-runner --restart always \
 ### Регистрация раннера
 ```
 docker run --rm -it \
+    --add-host=gitlab.kameraaction.pp.ua:172.17.10.21 \
     -v /srv/gitlab-runner/config:/etc/gitlab-runner \
     gitlab/gitlab-runner:alpine register
 ```
